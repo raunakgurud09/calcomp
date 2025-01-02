@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Month } from "./Month";
 import { Year } from "./Year";
 import { CalendarHeader } from "./CalendarHeader";
