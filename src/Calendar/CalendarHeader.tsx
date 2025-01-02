@@ -6,42 +6,55 @@ type CalendarHeaderProps = {
   onNextMonth: () => void;
   onToggleMode: () => void;
   mode: "month" | "year";
+  textColor: string;
 };
 
 export const CalendarHeader = ({
   currentMonth,
   currentYear,
-  color,
   onPrevMonth,
   onNextMonth,
   onToggleMode,
+  textColor,
 }: CalendarHeaderProps) => {
-  const currentMonthName = new Date(0, currentMonth).toLocaleString("default", {
-    month: "long",
-  });
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const currentMonthName = monthNames[currentMonth] || "Jan";
 
   return (
     <div className="flex items-center justify-between mb-4">
       <button
         onClick={onPrevMonth}
-        className="text-lg font-bold"
-        style={{ color }}
+        className="text-lg font-bold bg-transparent"
+        style={{ color: textColor }}
       >
         ◀
       </button>
       <div className="text-center">
         <button
-          style={{ color }}
+          style={{ color: textColor }}
           onClick={onToggleMode}
-          className="text-xl font-semibold"
+          className="text-xl font-semibold bg-transparent"
         >
-          {currentMonthName.slice(0, 3)} {currentYear}
+          {currentMonthName} {currentYear}
         </button>
       </div>
       <button
         onClick={onNextMonth}
-        className="text-lg font-bold"
-        style={{ color }}
+        className="text-lg font-bold bg-transparent"
+        style={{ color: textColor }}
       >
         ▶
       </button>

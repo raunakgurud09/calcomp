@@ -4,21 +4,23 @@ import { Year } from "./Year";
 import { CalendarHeader } from "./CalendarHeader";
 
 export type CalendarProps = {
-  type?: "single" | "range"; // "single" for single date, "range" for date range
+  type?: "single" | "range";
   initialYear?: string;
   initialMonth?: string;
-  onDateChange?: (date: string | null) => void; // For single date selection
-  onDateRangeChange?: (start: string | null, end: string | null) => void; // For range selection
+  onDateChange?: (date: string | null) => void;
+  onDateRangeChange?: (start: string | null, end: string | null) => void;
   color?: string; // Hex code for primary color
+  textColor?: string;
 };
 
 export const Calendar = ({
   type = "single",
-  initialYear = "2024",
+  initialYear = "2025",
   initialMonth = "Jan",
   onDateChange,
   onDateRangeChange,
   color = "#007BFF",
+  textColor = "white",
 }: CalendarProps) => {
   const [mode, setMode] = useState<"month" | "year">("month");
   const [currentMonth, setCurrentMonth] = useState<number>(
@@ -69,7 +71,7 @@ export const Calendar = ({
   });
 
   return (
-    <div className="p-4 w-[300px] md:w-[350px] lg:w-[400px] min-w-[300px]">
+    <div className="p-4 w-[300px] md:w-[350px] lg:w-[400px] min-w-[300px] border border-white/50 rounded-md">
       <CalendarHeader
         currentMonth={currentMonth}
         currentYear={currentYear}
@@ -78,6 +80,7 @@ export const Calendar = ({
         onNextMonth={handleNextMonth}
         onToggleMode={() => setMode(mode === "month" ? "year" : "month")}
         mode={mode}
+        textColor={textColor}
       />
       <div>
         {mode === "month" ? (
