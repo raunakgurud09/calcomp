@@ -37,7 +37,7 @@ export const CalendarHeader = ({
     <div className="flex items-center justify-between mb-4">
       <button
         onClick={onPrevMonth}
-        className="text-lg font-bold bg-transparent"
+        className="p-2 px-4 text-lg font-bold bg-transparent"
         style={{ color: textColor }}
       >
         ◀
@@ -46,14 +46,14 @@ export const CalendarHeader = ({
         <button
           style={{ color: textColor }}
           onClick={onToggleMode}
-          className="text-xl font-semibold bg-transparent"
+          className="p-4 text-xl font-semibold bg-transparent"
         >
           {currentMonthName} {currentYear}
         </button>
       </div>
       <button
         onClick={onNextMonth}
-        className="text-lg font-bold bg-transparent"
+        className="p-2 px-4 text-lg font-bold bg-transparent"
         style={{ color: textColor }}
       >
         ▶

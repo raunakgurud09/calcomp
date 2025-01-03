@@ -11,7 +11,7 @@ function App() {
           </p>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-full gap-8 p-8">
+        <div className="flex flex-col items-center justify-center w-full gap-16 p-8">
           <DemoCard
             type="single"
             title="Single Date Selection"

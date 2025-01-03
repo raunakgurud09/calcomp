@@ -9,7 +9,7 @@ export type CalendarProps = {
   initialMonth?: string;
   onDateChange?: (date: string | null) => void;
   onDateRangeChange?: (start: string | null, end: string | null) => void;
-  color?: string; // Hex code for primary color
+  color?: string;
   textColor?: string;
 };
 
