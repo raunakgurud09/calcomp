@@ -5,13 +5,13 @@ const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
 export type MonthProps = {
   type: "single" | "range";
-  month: number; // 0-based index for the month
+  month: number;
   year: number;
   onDateSelect?: (date: string | null) => void;
   onDateRangeSelect?: (start: string | null, end: string | null) => void;
   selectedDate?: string | null;
   selectedRange?: { start: string | null; end: string | null };
-  color: string; // Primary color (e.g., #3498db)
+  color: string;
   textColor?: string;
 };
 
@@ -128,7 +128,7 @@ export const Month = ({
       if (selectedRange?.start === key) {
         return {
           backgroundColor: color,
-          borderRadius: "0.375rem 0 0 0.375rem",
+          borderRadius: "4px 0 0 4px",
           color: textColor,
         };
       }
@@ -136,30 +136,30 @@ export const Month = ({
       if (selectedRange?.end === key) {
         return {
           backgroundColor: color,
-          borderRadius: "0 0.375rem 0.375rem 0", // Left-side rounded
+          borderRadius: "0 4px 4px 0",
           color: textColor,
         };
       }
 
       if (isDateInRange(key)) {
         return {
-          backgroundColor: `${color}80`, // Transparent range
-          borderRadius: "0", // Left-side rounded
+          backgroundColor: `${color}80`,
+          borderRadius: "0",
           color: textColor,
         };
       }
 
       if (isDateInHoverRange(key)) {
         return {
-          backgroundColor: `${color}40`, // Transparent hover range
-          borderRadius: "0", // Left-side rounded
+          backgroundColor: `${color}40`,
+          borderRadius: "0",
           color: textColor,
         };
       }
     }
 
     if (type === "single" && selectedDate === key) {
-      return { backgroundColor: color, color: textColor }; // Selected date
+      return { backgroundColor: color, color: textColor };
     }
 
     return isCurrentMonth
@@ -169,7 +169,7 @@ export const Month = ({
           pointerEvents: "none",
           cursor: "disabled",
           color: textColor,
-        }; // Default non-current month
+        };
   };
 
   return (
@@ -187,7 +187,7 @@ export const Month = ({
           return (
             <div
               key={key}
-              className={`p-2 rounded-md cursor-pointer`}
+              className={`p-2 rounded-md cursor-pointer transition-all duration-300`}
               style={getDateStyle(key, date.isCurrentMonth)}
               onClick={() => date.isCurrentMonth && handleDateClick(date)}
               onMouseEnter={() => date.isCurrentMonth && handleMouseEnter(date)}

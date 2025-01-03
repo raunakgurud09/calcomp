@@ -46,7 +46,7 @@ export const CalendarHeader = ({
         <button
           style={{ color: textColor }}
           onClick={onToggleMode}
-          className="p-4 text-xl font-semibold bg-transparent"
+          className="p-4 px-6 text-xl font-semibold bg-transparent"
         >
           {currentMonthName} {currentYear}
         </button>

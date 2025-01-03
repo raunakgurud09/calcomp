@@ -97,9 +97,9 @@ export const Calendar = ({
         ) : (
           <Year
             selectedMonth={currentMonthName}
-            onMonthChange={(newMonth) =>
-              setCurrentMonth(new Date(newMonth + " 01").getMonth())
-            }
+            onMonthChange={(newMonth) => {
+              setCurrentMonth(new Date(newMonth + " 01").getMonth());
+            }}
             color={color}
           />
         )}

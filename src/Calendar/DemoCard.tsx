@@ -19,11 +19,10 @@ export const DemoCard = ({
 }: DemoCardProps) => {
   const [view, setView] = useState<"preview" | "code">("preview");
 
-  const handleDateChange = (date: string | null) =>
-    console.log("Selected Date:", date);
+  const handleDateChange = (date: string | null) => console.log("Date:", date);
 
   const handleRangeChange = (start: string | null, end: string | null) =>
-    console.log("Selected Range:", { start, end });
+    console.log("Range:", { start, end });
 
   const codeSnippet = `
 <Calendar
